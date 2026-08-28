@@ -1,14 +1,14 @@
 import { Navigate, useLocation } from "react-router";
-// import { useAuth } from "../contexts/AuthContext";
-// import Spinner from "./ui/Spinner";
+import { useAuth } from "../contexts/AuthContext";
+import Spinner from "./Spinner";
 
 function ProtectedRoute({ children }) {
-//   const { isAuthenticated, loading } = useAuth();
+  const { isAuthenticated, loading } = useAuth();
   const location = useLocation();
 
-//   if (loading) {
-//     return <Spinner message="Carregando..." />;
-//   }
+  if (loading) {
+    return <Spinner/>;
+  }
 
   if (!isAuthenticated) {
     return (
